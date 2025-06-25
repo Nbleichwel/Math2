@@ -66,22 +66,63 @@ h1 {
     font-weight: 500;
 }
 
-.toolbar,
-.simulation-controls,
-#infoPanel,
-.scientific-explanation {
-    background: var(--surface-color);
-    border: 1.5px solid var(--border-color);
-    border-radius: var(--border-radius);
-    width: 100%;
-    padding: 15px 18px;
-    box-shadow: var(--shadow);
+/* Centralizar e alinhar as toolbars de sets e armas */
+.main-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    margin-top: 12px;
 }
 
+/* Ajuste visual para o grupo de botões de sets */
+.sets-toolbar {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    background: #23253c;
+    border-radius: 15px;
+    padding: 0 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    box-shadow: 0 2px 12px #0003;
+}
+
+.set-button {
+    font-size: 1.08rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 11px;
+    background: transparent;
+    color: #8be4ff;
+    padding: 13px 20px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.13s;
+    outline: none;
+    position: relative;
+}
+
+.set-button.active,
+.set-button:focus-visible {
+    background: #e63946;
+    color: #fff;
+    z-index: 1;
+}
+
+.set-button:hover:not(.active) {
+    background: #31324a;
+    color: #fff;
+}
+
+/* Toolbar de armas centralizada */
 .toolbar {
     display: flex;
+    flex-direction: row;
     gap: 14px;
-    margin-bottom: 2px;
+    justify-content: center;
+    margin-left: 0;
 }
 
 .tool-button {
@@ -102,6 +143,7 @@ h1 {
     outline: none;
     border: 1.5px solid transparent;
 }
+
 .tool-button.active,
 .tool-button:focus-visible {
     background: linear-gradient(90deg, var(--primary-color) 55%, var(--accent) 120%);
@@ -110,13 +152,13 @@ h1 {
     transform: translateY(-2px) scale(1.04);
     z-index: 2;
 }
+
 .tool-button:hover:not(.active):not(:disabled) {
     background: #2a2a2a;
     color: var(--text-primary);
     transform: scale(1.02);
 }
 
-/* --- DESIGN DOS SLIDERS --- */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -166,6 +208,11 @@ input[type="range"]:disabled::-webkit-slider-thumb {
     justify-content: center;
     gap: 18px;
     padding: 18px 16px 12px 16px;
+    background: var(--surface-color);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
 }
 
 .control-group {
@@ -252,17 +299,33 @@ canvas {
     margin-top: 8px;
 }
 
-#clearButton {
-    padding: 15px 30px;
+.buttons-row {
+    width: 100%;
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+#clearButton,
+.traj-button {
+    flex: 1 1 0;
+    padding: 15px 0;
     border: none;
-    background: linear-gradient(90deg, var(--primary-color) 70%, var(--accent) 120%);
-    color: white;
     font-size: 1.08rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.18s;
     border-radius: 13px;
+    transition: all 0.18s;
     box-shadow: 0 3px 16px #e63946a8;
+    outline: none;
+    margin: 0;
+}
+
+#clearButton {
+    background: linear-gradient(90deg, var(--primary-color) 70%, var(--accent) 120%);
+    color: white;
+    margin-right: 9px;
 }
 #clearButton:hover,
 #clearButton:focus {
@@ -271,8 +334,26 @@ canvas {
     outline: none;
 }
 
+.traj-button {
+    background: linear-gradient(90deg, var(--accent) 30%, var(--primary-color) 120%);
+    color: #fff;
+    margin-left: 9px;
+}
+.traj-button:hover,
+.traj-button:focus {
+    background: linear-gradient(90deg, var(--primary-color) 60%, var(--accent) 120%);
+    filter: brightness(1.1);
+    color: #fff;
+    outline: none;
+}
+
 #infoPanel {
     padding: 29px 24px 24px 24px;
+    background: var(--surface-color);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
 }
 
 #infoPanel h3 {
@@ -432,5 +513,9 @@ input[type="range"]:disabled + #forceValue {
     }
     #infoPanel {
         padding: 13px;
+    }
+    .buttons-row {
+        flex-direction: column;
+        gap: 11px;
     }
 }
