@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Forense Interativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="site-header">
+            <h1>Simulador de Manchas de Sangue</h1>
+            <p class="subtitle">Uma demonstração interativa da matemática na análise de cenas de crime.</p>
+        </header>
+
+        <main class="simulation-area">
+            <div class="main-toolbar">
+                <div class="sets-toolbar">
+                    <button class="set-button active" data-set="classicas">Clássicas</button>
+                    <button class="set-button" data-set="improvisadas">Improvisadas</button>
+                </div>
+                <div class="toolbar"></div>
+            </div>
+
+            <div class="simulation-controls">
+                <div class="control-group" id="force-control-group">
+                    <label for="forceSlider">Força:</label>
+                    <input type="range" id="forceSlider" min="1" max="3" value="2">
+                    <span id="forceValue">Média</span>
+                </div>
+                <div class="control-group">
+                    <label for="bodyPartSelect">Região Alvo:</label>
+                    <select id="bodyPartSelect">
+                        <option value="TORAX">Tórax</option>
+                        <option value="CABECA">Cabeça</option>
+                        <option value="PESCOCO">Pescoço</option>
+                        <option value="ROSTO">Rosto</option>
+                        <option value="ABDOMEN">Abdômen</option>
+                        <option value="COSTAS">Costas</option>
+                        <option value="BRACOS">Braços</option>
+                        <option value="PERNAS">Pernas</option>
+                        <option value="MAOS">Mãos</option>
+                        <option value="PES">Pés</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="distanceSlider">Distância da Origem:</label>
+                    <input type="range" id="distanceSlider" min="0.30" max="4.00" step="0.01" value="1.20">
+                    <span id="distanceValue">1,20</span> m
+                </div>
+            </div>
+
+            <div id="canvas-container"></div>
+
+            <div id="controls-container">
+                <div class="buttons-row">
+                    <button id="clearButton">Limpar Simulação</button>
+                    <button id="trajBtn" class="traj-button">Mostrar Trajetórias</button>
+                </div>
+                <div id="infoPanel">
+                    <h3>Análise do Evento</h3>
+                    <div id="event-description">
+                        <p class="placeholder">Selecione as opções e clique na parede para simular.</p>
+                    </div>
+                    <div id="info-content"></div>
+                </div>
+            </div>
+        </main>
+
+        <section class="scientific-explanation">
+            <details>
+                <summary>
+                    <span>A Ciência por Trás da Simulação</span>
+                    <span class="icon">+</span>
+                </summary>
+                <div class="explanation-content">
+                    <h4>Física e Geometria do Impacto</h4>
+                    <p>Gotas de sangue viajam como pequenas esferas devido à tensão superficial. Quando atingem uma superfície, a forma deixada revela o ângulo em que chegaram:</p>
+                    <ul>
+                        <li><strong>Impacto perpendicular (90°):</strong> Mancha quase circular.</li>
+                        <li><strong>Impacto inclinado (menor que 90°):</strong> Mancha elíptica, cada vez mais alongada conforme o ângulo diminui.</li>
+                    </ul>
+                    <h4>Trigonometria na Reconstituição</h4>
+                    <p>Peritos usam a geometria das manchas para reconstruir a trajetória reversa das gotas. Dois cálculos principais são:</p>
+                    <ul>
+                        <li>
+                            <strong>Ângulo de Impacto (α):</strong><br>
+                            Determinado pela razão entre largura e comprimento da mancha.<br>
+                            <code>α = arcsin(largura / comprimento)</code>
+                        </li>
+                        <li>
+                            <strong>Ponto de Origem (Altura H):</strong><br>
+                            Calculado usando o ângulo de impacto e a distância (d) do centro da mancha até a área de convergência no plano.<br>
+                            <code>H = tan(α) × d</code>
+                        </li>
+                    </ul>
+                    <h4>Padrões de Velocidade</h4>
+                    <p>A energia do impacto define o padrão do respingo:</p>
+                    <ul>
+                        <li><strong>Baixa Velocidade (Faca):</strong> Gotas grandes, caindo pela gravidade.</li>
+                        <li><strong>Média Velocidade (Soco, Martelo):</strong> Gotas médias, resultado de impacto contundente.</li>
+                        <li><strong>Alta Velocidade (Pistola):</strong> Minúsculas gotículas (&lt;1mm) formando uma névoa, causadas por projétil de alta energia.</li>
+                    </ul>
+                    <p><strong>Resumo:</strong><br>
+                    O padrão, o tamanho e a forma das manchas permitem, através de leis da física e matemática, reconstruir eventos em cenas de crime.</p>
+                </div>
+            </details>
+        </section>
+        <div id="tooltip"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
