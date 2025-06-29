@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let pessoaImgCarregada = false;
   pessoaImg.onload = () => { pessoaImgCarregada = true; };
 
-  // --- MAPA DOS TIPOS DE PADRÃO PARA O SET SECRETO JOJO ---
+  // --- Secret
   const tiposJoJo = {
       IMPACTO_ROTACIONAL:    { tipo: 'nevoa_media', volume: 500, dispersao: 5, nome: "Impacto Espiralado" },
       VORTEX_DESTRUTIVO:     { tipo: 'nevoa_densa', volume: 1800, dispersao: 8, nome: "Vórtex de Obliteração" },
@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mancha = { ...manchaCalculada, origem: origemMancha };
         }
 
-        // --- Bloco CORRIGIDO e RESTAURADO ---
+      
         if (!mancha.corBase) mancha.corBase = [130 + Math.random() * 30, 0, 0];
         mancha.timestamp = Date.now();
         
@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mancha.analise = analise;
         
         analises.push(analise);
-        manchas.push(mancha); // A LINHA MAIS IMPORTANTE QUE FALTAVA
+        manchas.push(mancha); 
     }
     return { n: numeroDeGotas, analises };
 }
@@ -531,12 +531,11 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.translate(metersToPx(mancha.x), metersToPx(mancha.y));
       ctx.rotate(anguloCorreto);
       
-      // Desenha a elipse principal da gota/mancha
+      // DElipse principal da gota/mancha
       ctx.beginPath();
       ctx.ellipse(0, 0, metersToPx(mancha.comprimento / 2), metersToPx(mancha.largura / 2), 0, 0, 2 * Math.PI);
       ctx.fill();
 
-      // Desenha espículas apenas para impactos não-anime para manter a clareza
       if (mancha.espiculas) {
           mancha.offsets.forEach(offset => {
               ctx.beginPath();
@@ -553,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       }
       ctx.restore();
-    } else { // Desenho simples para névoa
+    } else { // Desenho névoa
       ctx.beginPath();
       ctx.ellipse(metersToPx(mancha.x), metersToPx(mancha.y), metersToPx(mancha.comprimento / 2), metersToPx(mancha.largura / 2), 0, 0, 2 * Math.PI);
       ctx.fill();
@@ -625,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizarPaineis(parametros, x, y, analiseBatch);
   });
 
-  // --- DRAG E CLIQUE DO BONECO ---
+  // --- DRAG E CLICK ---
   canvas.addEventListener('mousedown', (e) => {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -739,7 +738,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   function handleUserInteraction() {
       const parametros = obterParametros();
-      // Atualizado para usar o 'n' de analiseBatch quando disponível
       let volumeExibido = parametros.volume;
       atualizarPaineis(parametros, 0, 0, { n: volumeExibido, analises: [] });
       infoContent.innerHTML = '<p class="placeholder">Clique no canvas para simular o impacto.</p>';
