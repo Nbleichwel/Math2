@@ -78,34 +78,54 @@
                 </summary>
                 <div class="explanation-content">
                     <h4>Física e Geometria do Impacto</h4>
-                    <p>Gotas de sangue viajam como pequenas esferas devido à tensão superficial. Quando atingem uma superfície, a forma deixada revela o ângulo em que chegaram:</p>
+                    <p>Gotas de sangue, que viajam como pequenas esferas devido à tensão superficial, revelam informações cruciais ao colidirem com uma superfície. A forma da mancha deixada indica o ângulo de impacto:</p>
                     <ul>
-                        <li><strong>Impacto perpendicular (90°):</strong> Mancha quase circular.</li>
-                        <li><strong>Impacto inclinado (menor que 90°):</strong> Mancha elíptica, cada vez mais alongada conforme o ângulo diminui.</li>
+                        <li><strong>Impacto perpendicular (90°):</strong> Deixa uma mancha de formato quase perfeitamente circular.</li>
+                        <li><strong>Impacto inclinado (menor que 90°):</strong> Resulta em uma mancha elíptica, que se torna cada vez mais alongada conforme o ângulo de impacto diminui.</li>
                     </ul>
-                    <h4>Trigonometria na Reconstituição</h4>
-                    <p>Peritos usam a geometria das manchas para reconstruir a trajetória reversa das gotas. Dois cálculos principais são:</p>
+
+                    <h4>Trigonometria e Cálculos na Reconstituição Forense</h4>
+                    <p>Peritos utilizam a geometria das manchas para reconstruir a trajetória reversa das gotas e determinar a dinâmica dos eventos. Os cálculos fundamentais são:</p>
+                    
+                    <h5>1. Cálculo do Ângulo de Impacto (α)</h5>
+                    <p>Determina o ângulo em que a gota atingiu a superfície, com base na razão entre a largura e o comprimento da mancha elíptica.</p>
+                    <p><code>α = arcsin(largura / comprimento)</code></p>
                     <ul>
-                        <li>
-                            <strong>Ângulo de Impacto (α):</strong><br>
-                            Determinado pela razão entre largura e comprimento da mancha.<br>
-                            <code>α = arcsin(largura / comprimento)</code>
-                        </li>
-                        <li>
-                            <strong>Ponto de Origem (Altura H):</strong><br>
-                            Calculado usando o ângulo de impacto e a distância (d) do centro da mancha até a área de convergência no plano.<br>
-                            <code>H = tan(α) × d</code>
-                        </li>
+                        <li><strong>Largura:</strong> Menor eixo da mancha de forma elíptica.</li>
+                        <li><strong>Comprimento:</strong> Maior eixo da mancha elíptica.</li>
                     </ul>
-                    <h4>Padrões de Velocidade</h4>
-                    <p>A energia do impacto define o padrão do respingo:</p>
+
+                    <h5>2. Cálculo da Direção da Mancha (θ)</h5>
+                    <p>Calcula a direção do vetor da gota de sangue em relação ao seu ponto de origem.</p>
+                    <p><code>θ = atan2(Δy, Δx)</code></p>
+                     <ul>
+                        <li><strong>Δx:</strong> Diferença entre o centro da mancha e a origem no eixo X.</li>
+                        <li><strong>Δy:</strong> Diferença entre o centro da mancha e a origem no eixo Y.</li>
+                    </ul>
+
+                    <h5>3. Cálculo do Ponto de Origem (Altura H)</h5>
+                    <p>Estima a altura de onde a gota partiu, utilizando o ângulo de impacto e a distância da mancha até a área de convergência.</p>
+                    <p><code>H = distância × tan(α)</code></p>
                     <ul>
-                        <li><strong>Baixa Velocidade (Faca):</strong> Gotas grandes, caindo pela gravidade.</li>
-                        <li><strong>Média Velocidade (Soco, Martelo):</strong> Gotas médias, resultado de impacto contundente.</li>
-                        <li><strong>Alta Velocidade (Pistola):</strong> Minúsculas gotículas (&lt;1mm) formando uma névoa, causadas por projétil de alta energia.</li>
+                        <li><strong>Distância:</strong> Distância em linha reta na superfície do centro da mancha até o ponto de origem.</li>
+                        <li><strong>α:</strong> O ângulo de impacto.</li>
                     </ul>
+
+                    <h5>4. Cálculo da Área da Mancha (A)</h5>
+                    <p>Fornece uma aproximação da área da mancha elíptica.</p>
+                    <p><code>A = π × (largura / 2) × (comprimento / 2)</code></p>
+                    
+                    <h4>Classificação dos Padrões</h4>
+                    <p>A energia do evento que dispersa o sangue define o padrão do respingo, sendo classificados de acordo com a velocidade do impacto:</p>
+                    <ul>
+                        <li><strong>Baixa Velocidade (ex: gotejamento passivo, faca):</strong> Resulta em gotas relativamente grandes.</li>
+                        <li><strong>Média Velocidade (ex: soco, martelo):</strong> Gera gotas de tamanho médio, resultantes de um impacto contundente.</li>
+                        <li><strong>Alta Velocidade (ex: projétil de arma de fogo):</strong> Causa minúsculas gotículas (&lt;1mm) que formam uma névoa.</li>
+                    </ul>
+                    <p>Esses padrões são também classificados como passivos, de transferência ou de projeção, cada um fornecendo indícios sobre a dinâmica do crime.</p>
+
                     <p><strong>Resumo:</strong><br>
-                    O padrão, o tamanho e a forma das manchas permitem, através de leis da física e matemática, reconstruir eventos em cenas de crime.</p>
+                    O padrão, o tamanho e a forma das manchas de sangue permitem, através da aplicação de leis da física e de fórmulas matemáticas, reconstruir eventos em cenas de crime, funcionando como uma ferramenta essencial para apoio à justiça.</p>
                 </div>
             </details>
         </section>
